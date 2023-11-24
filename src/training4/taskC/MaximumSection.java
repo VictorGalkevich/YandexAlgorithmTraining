@@ -82,4 +82,4 @@ public class MaximumSection {
 
         int nextInt() { return Integer.parseInt(next()); }
     }
-}}
+}
