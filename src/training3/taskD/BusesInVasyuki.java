@@ -40,7 +40,7 @@ public class BusesInVasyuki {
         dist[startRootNumber - 1] = 0;
 
         for (int i = 0; i < numberOfRoots; i++) {
-            while (queue.size() > 0) {
+            while (!queue.isEmpty()) {
                 int current = findMin();
 
                 for (Pair pair : adjacencyList.get(current)) {
