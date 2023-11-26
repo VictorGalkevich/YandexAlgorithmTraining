@@ -1,18 +1,19 @@
 package training1.taskD;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class MergeSort {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        FastReader scanner = new FastReader();
         int len1 = scanner.nextInt();
         int[] mainArray = new int[len1];
         for (int i = 0; i < len1; i++) {
             mainArray[i] = scanner.nextInt();
-        }
-        int[] newArr = mergeSort(mainArray);
-        for (int i : newArr) {
-            System.out.print(i + " ");
         }
     }
 
@@ -75,6 +76,31 @@ public class MergeSort {
             res[i++] = b[pb++];
         }
         return res;
+    }
+
+    static class FastReader
+    {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() throws FileNotFoundException {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next()
+        {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() { return Integer.parseInt(next()); }
     }
 }
 

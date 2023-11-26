@@ -52,7 +52,7 @@ public class Bricks {
         if (counter >= numberOfBanknotes) {
             return;
         }
-        if (index == -1) {
+        if (index < 0) {
             return;
         }
         find(values, n - values[index], index - 1, result + values[index] + " ", counter + 1);
