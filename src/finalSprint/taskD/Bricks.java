@@ -15,19 +15,18 @@ public class Bricks {
         FastReader scanner =  new FastReader();
         find = scanner.nextInt();
         numberOfValues = scanner.nextInt();
-        values = new int[2 * numberOfValues];
+        values = new int[numberOfValues];
         int sum = 0;
-        for (int i = 0; i < numberOfValues * 2 - 1; i += 2) {
+        for (int i = 0; i < numberOfValues; i++) {
             int tmp = scanner.nextInt();
             values[i] = tmp;
-            values[i + 1] = tmp;
             sum += tmp * 2;
         }
         if (sum < find) {
             System.out.println(-1);
             System.exit(0);
         }
-        find(values, find, 2 * numberOfValues - 1, "", 0);
+        find(values, find, numberOfValues - 1, "", 0);
         if (numberOfBanknotes != Integer.MAX_VALUE) {
             System.out.println(numberOfBanknotes);
             System.out.println(finalString.trim());
@@ -56,6 +55,7 @@ public class Bricks {
             return;
         }
         find(values, n - values[index], index - 1, result + values[index] + " ", counter + 1);
+        find(values, n - 2 * values[index], index - 1, result + values[index] + " " + values[index] + " ", counter + 2);
         find(values, n, index - 1, result, counter);
     }
 
