@@ -15,6 +15,12 @@ public class MergeSort {
         for (int i = 0; i < len1; i++) {
             mainArray[i] = scanner.nextInt();
         }
+        int[] newArr = mergeSort(mainArray);
+        StringBuilder builder = new StringBuilder();
+        for (int i : newArr) {
+            builder.append(i).append(" ");
+        }
+        System.out.println(builder);
     }
 
     public static int[] mergeSort(int[] arr) {
